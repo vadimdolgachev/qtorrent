@@ -28,12 +28,15 @@ private slots:
     void onRequestPeers(QNetworkReply *reply);
 
 private:
-    MetaInfo mMetaInfo;
-    TorrentClient *mClient;
-    QNetworkAccessManager *mNAM;
-    QList<Peer> mListPeers;
     bool mFirstSeeding;
+    bool mFirstTrackerRequest;
+    bool mIsSeeding;
+    bool mLastTrackerRequest;
+    MetaInfo mMetaInfo;
+    QList<Peer> mListPeers;
+    QNetworkAccessManager *mNAM;
     quint32 mTimeRequestPeers;
+    TorrentClient *mClient;
 };
 
 #endif // TRACKERCLIENT_H

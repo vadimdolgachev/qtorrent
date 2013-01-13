@@ -3,12 +3,10 @@
 
 #include "MetaInfo.h"
 #include "TrackerClient.h"
-#include "RateControle.h"
+#include "RateControl.h"
 
 #include <QObject>
-#include <QFile>
 #include <QTimer>
-
 
 class PeerWire;
 
@@ -38,11 +36,12 @@ private:
     quint32 mCurrentPiece;
     quint32 mCurrentOffset;
     double mNumPieces;
-    QFile file;
     quint16 mPort;
     QTimer mTimer;
     quint32 mRate;
     RateControl rateControle;
+    bool mIsChocked;
+    bool mIsInterested;
 };
 
 #endif // TORRENTCLIENT_H

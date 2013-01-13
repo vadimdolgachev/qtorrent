@@ -1,4 +1,4 @@
-qtorrent
+libqtorrent
 ========
 
 qt torrent downloader

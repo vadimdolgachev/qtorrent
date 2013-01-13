@@ -19,7 +19,7 @@ public slots:
     void getRate();
 
 private:
-    QTimer *timer;
+    QTimer *mTimer;
     quint64 numBytes;
     QList<PeerWire *> *mListPeers;
 };

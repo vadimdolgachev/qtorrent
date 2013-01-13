@@ -1,6 +1,5 @@
 #include "BencodeParser.h"
 
-#include <QString>
 #include <QDebug>
 
 BencodeParser::BencodeParser()

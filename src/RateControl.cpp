@@ -1,4 +1,4 @@
-#include "RateControle.h"
+#include "RateControl.h"
 #include "PeerWire.h"
 
 #include <QTimer>
@@ -7,15 +7,15 @@ RateControl::RateControl(QObject *parent) :
     QObject(parent),
     mListPeers(0)
 {
-    timer = new QTimer(this);
-    timer->setInterval(1000);
-    connect(timer, SIGNAL(timeout()), this, SLOT(getRate()));
+    mTimer = new QTimer(this);
+    mTimer->setInterval(1000);
+    connect(mTimer, SIGNAL(timeout()), this, SLOT(getRate()));
 }
 
 void RateControl::setListPeers(QList<PeerWire *> *list)
 {
     mListPeers = list;
-    timer->start();
+    mTimer->start();
 }
 
 void RateControl::getRate()
@@ -27,5 +27,5 @@ void RateControl::getRate()
     foreach (PeerWire *peer, *mListPeers)
         sum += peer->peerRate();
     qDebug() << "rate: " << sum;
-    timer->start();
+    mTimer->start();
 }

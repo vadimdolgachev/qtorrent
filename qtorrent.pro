@@ -8,7 +8,7 @@ QT       += core network
 
 QT       -= gui
 
-TARGET = torrentClient
+TARGET = libqtorrent
 CONFIG   += console
 CONFIG   -= app_bundle
 
@@ -18,21 +18,21 @@ OTHER_FILES += \
     README.md
 
 HEADERS += \
-    TrackerClient.h \
-    TorrentClient.h \
-    RateControle.h \
-    PeerWire.h \
-    Peer.h \
-    MetaInfo.h \
-    BencodeParser.h
+    src/TrackerClient.h \
+    src/TorrentClient.h \
+    src/RateControl.h \
+    src/PeerWire.h \
+    src/Peer.h \
+    src/MetaInfo.h \
+    src/BencodeParser.h
 
 SOURCES += \
-    TrackerClient.cpp \
-    TorrentClient.cpp \
-    RateControle.cpp \
-    PeerWire.cpp \
-    Peer.cpp \
-    MetaInfo.cpp \
-    main.cpp \
-    BencodeParser.cpp
+    src/TrackerClient.cpp \
+    src/TorrentClient.cpp \
+    src/RateControl.cpp \
+    src/PeerWire.cpp \
+    src/Peer.cpp \
+    src/MetaInfo.cpp \
+    src/main.cpp \
+    src/BencodeParser.cpp
 

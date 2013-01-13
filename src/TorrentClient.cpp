@@ -11,7 +11,9 @@ TorrentClient::TorrentClient(QObject *parent) :
     mTrackerClient(new TrackerClient(this)),
     mCurrentPiece(0),
     mCurrentOffset(0),
-    mPort(6881)
+    mPort(6881),
+    mIsChocked(true),
+    mIsInterested(false)
 {
     connect(mTrackerClient, SIGNAL(onGetPeers()), this, SLOT(onConnectedPeers()));
     qsrand(QDateTime::currentDateTime().currentMSecsSinceEpoch());
@@ -40,6 +42,7 @@ QByteArray TorrentClient::infoHash() const
 
 QByteArray TorrentClient::peerId() const
 {
+//    Azareus-style
     QByteArray suffix;
 
     for (int i = 0; i < 12; ++i) {
@@ -100,7 +103,7 @@ void TorrentClient::onConnectedPeers()
 
 void TorrentClient::onTransfer()
 {
-    PeerWire *peer = qobject_cast<PeerWire *>(sender());
+//    PeerWire *peer = qobject_cast<PeerWire *>(sender());
 //    qDebug() << "start transfer" << peer->peerId();
     onGetNextBlock();
 }

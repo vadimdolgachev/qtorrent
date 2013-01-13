@@ -1,5 +1,5 @@
 #include "MetaInfo.h"
-#include <BencodeParser.h>
+#include "BencodeParser.h"
 
 #include <QDebug>
 
@@ -14,7 +14,6 @@ bool MetaInfo::parse(const QByteArray &file)
     if (bendecode.parse(file)) {
         const Dictionary &dic = bendecode.dictionary();
         mInfo = dic.value("announce").toString();
-//        qDebug() << dic;
         mInfoSection = bendecode.infoSection();
 
         QList<QVariant> announce_list =  dic.value("announce-list").value<QList<QVariant> >();
